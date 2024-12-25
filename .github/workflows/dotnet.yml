@@ -1,4 +1,4 @@
-name: Deploy React app to Firebase
+name: Deploy to Firebase R
 
 on:
   push:
@@ -7,26 +7,19 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Node.js (for React app)
+    - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '18.x'
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build React app
-      run: npm run build
-
     - name: Install Firebase CLI
       run: npm install -g firebase-tools
 
-    - name: Deploy to Firebase 2
+    - name: Deploy to Firebase
       run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} --project "cicd2-d0b8d"
