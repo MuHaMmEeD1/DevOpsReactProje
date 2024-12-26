@@ -39,7 +39,7 @@ jobs:
     - name: Deploy to Firebase
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      run: firebase deploy --only hosting --project "YOUR_FIREBASE_PROJECT_ID"
+      run: firebase deploy --only hosting --project "cicd2-d0b8d"
 
     - name: Run Tests
       run: npm test
